@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="register.css">
     <title>Registeration</title>
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
@@ -67,14 +65,6 @@
     </style>
 </head>
 <body>
-<ul class="topnav">
-    <li><a  href="index.html">Home</a></li>
-    <li><a href="add.html">Add ducks</a></li>
-    <li><a href="search.html">Search ducks</a></li>
-    <li><a href="pond.html">Pond</a></li>
-    <li class="right"><a  class="active" href="login.html">Login</a></li>
-</ul>
-
 <form  style="border:1px solid #ccc">
     <div class="container">
         <h1>Sign Up</h1>
@@ -98,6 +88,7 @@
 
 <script>
     async function signup() {
+        let host = "https://duck-service-jakecole.onrender.com";
         let email = document.getElementById("email").value;
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
@@ -110,7 +101,7 @@
             body: JSON.stringify(customer)
         };
         try {
-            let response = await fetch(getHost() + "/signup", request);
+            let response = await fetch(host + "/signup", request);
             if(response.status == 200) {
                 alert("The registration was successful!")
                 location.href = "login.html";
