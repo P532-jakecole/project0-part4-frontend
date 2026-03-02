@@ -24,11 +24,13 @@
             let duckType = document.getElementById("duckType").value;
             let duck = {id: duckId, type: duckType};
             console.log("You entered:" + JSON.stringify(duck));
+            let token = localStorage.getItem("token");
 
             let request = {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(duck)
             };
