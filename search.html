@@ -49,7 +49,9 @@
 
     async function getAll(){
         let host = "https://duck-service-jakecole.onrender.com";
-        let response = await fetch(host + "/ducks");
+        const token = localStorage.getItem("token");
+        let response = await fetch(host + "/ducks",
+            {headers: {"Authorization": `Bearer ${token}`}});
         return await response.json();
     }
 
