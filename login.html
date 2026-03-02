@@ -151,7 +151,7 @@
       let response = await fetch(host + "/signin", request);
       if(response.status == 200) {
         let data = await response.text();
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data);
         alert("The login was successful!")
       } else {
         console.log(`response status:${response.status}`);
